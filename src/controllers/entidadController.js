@@ -8,7 +8,7 @@ export const getAllEntidades = async (req, res) => {
 
     } catch (error) {
         console.log('Error en la consulta de Entidads a la base de datos:', error);
-        res.status(500).json({ message: 'Error al obtener los Entidads' });
+        res.status(500).json({ message: 'Error al obtener todas las Entidads' });
     }
 };
 
@@ -20,7 +20,7 @@ export const getEntidadID = async (req, res) => {
 
     } catch (error) {
         console.log('Error en la consulta de Entidads a la base de datos:', error);
-        res.status(500).json({ message: 'Error al editar un Entidad' });
+        res.status(500).json({ message: 'Error al buscar una Entidad por su id' });
     }
 }
 
@@ -56,11 +56,11 @@ export const editEntidad = async (req, res) => {
         if(!updatedEntidad){
             return res.status(404).json({message : 'Entidad no encontrada' });
         }
-        res.json(updatedUser);
+        res.json(updatedEntidad);
 
     } catch (error) {
         console.log('Error en la consulta de Entidads a la base de datos:', error);
-        res.status(500).json({ message: 'Error al editar un Entidad' });
+        res.json(updatedEntidad);
     }
 }
 
@@ -79,6 +79,6 @@ export const deleteEntidad = async (req, res) => {
 
     } catch (error) {
         console.log('Error en la consulta de Entidads a la base de datos:', error);
-        res.status(500).json({ message: 'Error al editar un Entidad' });
+        res.status(500).json({ message: 'Error al borrar un Entidad' });
     }
 }
